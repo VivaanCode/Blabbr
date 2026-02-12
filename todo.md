@@ -13,7 +13,7 @@
 - Add a typing indicator (0%) - 67% NECESSARY
 
 
-- Fix the popup when a user joins a room (99.9%) - 100% NECESSARY (really 10% but since were almost done, why not finish it)
+- Fix the popup when a user joins a room (99%) - 100% NECESSARY (really 10% but since were almost done, why not finish it)
 
 
 - Add Login/sign up (5%) 80% NECESSARY
@@ -31,13 +31,13 @@
 - Image sending (2%) - 70% NECESSARY
 
 
-- Voice/Video calling (60%) - 75% NECESSARY
+- Voice calling (0%) - 75% NECESSARY
 
 
-- ~~Block certain names (100%) 95% NECESSARY~~
+- Block certain names (COMPLETED BY VS) 95% NECESSARY
 
 
-- Make privacy policy and ToS (80%) 100% NECESSARY
+- Make privacy policy and ToS (80%) 80% NECESSARY
 
 
-- Say that we are done our website on adsense/Overall (25%) 100% NECESSARY
+- Say that we are done our website on adsense/Overall (71.5%) 100% NECESSARY

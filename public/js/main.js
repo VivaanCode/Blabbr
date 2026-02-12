@@ -10,15 +10,7 @@ var firsttimecontent = document.getElementById('firstt');
 var defaultt = document.getElementById('default');
 
 
-window.onload = function(){
-	let urlParamsxx = new URLSearchParams(window.location.search);
-	let usernamexx = urlParamsxx.get('username')
-	if (usernamexx == 'Blabbot' || usernamexx == 'Server' || usernamexx == 'Admin' || usernamexx == 'Commands' || usernamexx == 'Blabbr' || usernamexx == 'Blabbr Bot' || usernamexx == 'Bot' || usernamexx == ' ' || usernamexx == '' || usernamexx == null){
-		window.location.replace('https://blabbr.xyz/join?invalid');
-	}
 
-  setTimeout(__init__, 100);
-}
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -96,32 +88,35 @@ chatForm.addEventListener('submit', e => {
 
 // Output message to DOM
 function outputMessage(message) {
-	const queryStringx = window.location.search;
-	const urlParamsx = new URLSearchParams(queryStringx);
-	const usrnmx = urlParamsx.get('username')
-  if (message.username == usrnmx){
+  if (message.username == '-Xenity-'){
     const div = document.createElement('div');
 
   	div.classList.add(messagename);
 
-    div.style.backgroundColor = "rgb(157, 203, 255)";
-
-  	div.innerHTML = `<p class="meta own-msg">${message.username}</p>
-
+  	div.innerHTML = `<p class="meta">${message.username} <p class="tag">(Admin)</p></p>
     <p class="text">
       ${message.text}
     </p>`;
 
     document.querySelector('.chat-messages').appendChild(div);
-  }else{
+
+	  } else if (message.username == '--VSCoder--' || message.username == 'Vivaan' || message.username == 'VSCoder' || message.username == 'VS' || message.username == 'Vivaan S.'){
     const div = document.createElement('div');
-
-    div.style.backgroundColor = "#ebebeb";
-
 
   	div.classList.add(messagename);
 
-  	div.innerHTML = `<p class="meta other-msg">${message.username}</p>
+  	div.innerHTML = `<p class="meta">${message.username}</p><p class="tag">(Admin)</p>
+    <p class="text">
+      ${message.text}
+    </p>`;
+
+    document.querySelector('.chat-messages').appendChild(div);
+  } else {
+    const div = document.createElement('div');
+
+  	div.classList.add(messagename);
+
+  	div.innerHTML = `<p class="meta">${message.username}</p>
 
     <p class="text">
       ${message.text}
@@ -150,11 +145,9 @@ function outputUsers(users) {
 
 socket.on('roomUsers', ({ room, users }) => {
 	var roomName = room;
+	setTimeout(__init__, 100);
 });
 
-
-
-//asdfghjkl;
 function __init__(self){
 
 	const queryStringx = window.location.search;
@@ -165,18 +158,14 @@ function __init__(self){
 
 
 	let userxx = usrnmx
-	let roomxx = urlParamsx.get('room')
+	let roomxx = roomName.innerText;
 
 	// Get the modal
 	var modal = document.getElementById("myModal");
-	var invitelink = document.getElementById("invite-link");
+	var invitelink = document.getElementById("invite-link").value;
 	var firsttime = document.getElementById("firsttime");
 
-  fetch('https://i.blabbr.xyz/api/create/new/shorturl?u='+userxx+"&r="+roomxx)
-    .then(response => response.json())
-    .then(data => invitelink.value = "i.blabbr.xyz"+data.message);
-
-	//console.log(invitelink)
+	invitelink = 'https://blabbr.xyz/i?u='+userxx+'&r='+roomxx
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
@@ -194,7 +183,6 @@ function __init__(self){
 
 
 }
-
 
 
 

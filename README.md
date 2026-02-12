@@ -1,8 +1,8 @@
-
 # Blabbr
 
 _The Fastest, Most Reliable, and secure chat app_
 
+##### **PLEASE DO NOT CREATE A COPY OF OUR WEBSITE. READ ON FOR MORE INFORMATION. Please note: XSS attacks are strictly prohibited. **
 
 # Introduction
 

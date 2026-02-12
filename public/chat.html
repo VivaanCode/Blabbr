@@ -2,9 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7YZ6015TN2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+  gtag('config', 'G-7YZ6015TN2');
+</script>
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
 
 	<link rel="icon" href="images/Favicon.svg">
 	<!-- Meta Tags -->
@@ -19,64 +26,37 @@
 	 crossorigin="anonymous" />
 	<link rel="stylesheet" href="css/chat.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-
-	</script>
-	<link rel="stylesheet" href="css/modal.css">
+	</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/modal.css">
 
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 	<title>Blabbr - Chat</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js">
-
-	</script>
-
-	<script async src="https://arc.io/widget.min.js#k1BXUJLj">
-
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 
 	<!-- The Modal -->
-	<center>
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
+<center>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
     <div id="default">
       <h1>Welcome Back to Blabbr!</h1>
 
-      <h2>Don't forget: if you need help, send the message '/help' in the chat.</h2>
+      <h2>Don't forget: if you need help, send the message '/help' in the chat. Or you can find more info in our <a href="//docs.blabbr.xyz">API docs</a></h2>
     </div>
 		<div id='firstt' class="firsttime">
       <h1>Welcome to Blabbr!</h1>
-      <h2>Looks like you're trying this for the first time! Send the message '/help' in the chat to get a list of all commands and extra information. You can find more information in our our <a href="//docs.blabbr.xyz" target="_blank">Docs</a>.</h2>
+      <h2>Looks like its is your first time here! Send the message '/help' in the chat to get a list of all commands and extra information. You can find more information in our our <a href="//docs.blabbr.xyz" target="_blank">API Docs</a>.</h2>
     </div>
-    <h1>Invite friends!</h1>
+    <h2>Invite friends!</h2>
 		<h3>Invite Link:</h3>
-    <input readonly type="text" name="invite" id="invite-link" value="Loading..." placeholder="Your invite link!">
-    <p>We don't garuntee that this link will work forever, but it should, for 48 hours.</p>
+    <input type="text" name="invite" id="invite-link" value="Loading..." placeholder="Your invite link!">
 
   </div>
 
 </div></center>
-
-<script data-ad-client="ca-pub-3421774091588656" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-
-<script>
-function inFrame() {
-    try {
-        return window.self !== window.top;
-    } catch (e) {
-        return true;
-    }
-}
-
-if ( inFrame() ){
-  window.location.replace("/c-embedded?url="+location.href);
-}
-</script>
 </head>
 
 
@@ -108,11 +88,11 @@ if ( inFrame() ){
       <h4 id="room-name">Loading...</h4>
 
       <div class="exit">
-          <a class="exitbtn" href="/join"><span class="material-icons-outlined">logout</span></a>
+          <a class="exitbtn" href="/join">Exit Room</a>
         </div>
 
       <div class="meet">
-          <a class="meet" onclick="videoChat();"><span class="material-icons">videocam</span></a>
+          <a class="meet" onclick="videoChat();"><span class="material-icons">videocam</span></a> <!-- WHY CANT THE STUPID THING JUST WOKR -->
         </div>
 
         <div class="users">
@@ -144,7 +124,7 @@ if ( inFrame() ){
             autocomplete="off"
             maxlength="150"
           />
-          <button id='mesfes' class="sendbtn"><span class="material-icons">send</span></button>
+          <button id='mesfes' class="button1"><span class="material-icons">send</span></button>
         </form>
         
       </div>
@@ -153,27 +133,9 @@ if ( inFrame() ){
     </div>
 
 <script>
-
-
 	function videoChat(){
-		window.open('https://meet.blabbr.xyz/'+room, 1200, 1200)
+		window.open('https://meet.blabbr.xyz/'+room)
 	}
-
-/*
-	let urlParaz = new URLSearchParams(window.location.search);
-
-	if (getCookie("username") !== ""){
-		if (getCookie("username") !== urlParaz.get("username")){
-			if (urlParaz.get("room") !== ""){
-				window.location.replace("https://blabbr.xyz/chat?username="+getCookie("username")+"&room="+urlParaz.get("room"))
-			} else{
-				window.location.replace("https://blabbr.xyz/join?invalid2")
-			}
-		}
-	} else{
-		window.location.replace("https://account.blabbr.xyz")
-	}
-  */
 </script>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js" integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
@@ -186,8 +148,7 @@ if ( inFrame() ){
     <script src="js/main.js"></script>
     <script src="js/load.js"></script>
     <script src="js/chat.js"></script>
+    <script src="https://blabbr.xyz/banned_names.js"></script>
 
-
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "19b5366b81ca43cbb14957f5040a4655"}'></script><!-- End Cloudflare Web Analytics -->
  </body>
 </html>
