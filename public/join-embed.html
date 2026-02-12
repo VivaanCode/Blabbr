@@ -1,0 +1,91 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  *{
+    font-family: Montserrat;
+  }
+
+  :root {
+    --dark: #435dee;
+    --light-1: #fff;
+    --light-2: #eee;
+    --text-color-1: #222;
+  }
+
+  input {
+    border-radius: 50px;
+    border: none;
+    margin: 10px 0;
+    font-family: 'Poppins';
+    background-color: var(--light-2);
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .form-control {
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+  }
+
+  .btn {
+    font-size: 40px;
+    display: grid;
+    margin: 30px;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    letter-spacing: 0px;
+    background: #eee;
+    transition: 0.3s;
+  }
+
+  .margin {
+    margin: 10px;
+  }
+
+  .btn:hover {
+    color: #fff;
+    background: #435dee;
+    letter-spacing: 3px;
+  }
+</style>
+
+<form action="https://blabbr.xyz/chat">
+  <div class="form-control">
+    <input
+      type="text" 
+      name="username" 
+      id="username"
+      placeholder="Username"
+      style="padding: 15px 20px;"
+      required
+    />
+  </div>
+
+  <div class="form-control">
+    <input 
+      type="text" 
+      name="room" 
+      id="username"
+      placeholder="Room"
+      style="padding: 15px 20px;"
+      required
+      />
+
+    <button
+      type="submit" 
+      class="btn"
+      id="mesfs"
+      style="font-size: 15px;"
+      >Join
+    </button>
+  </div>
+
+</form>

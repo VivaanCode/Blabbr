@@ -57,14 +57,23 @@ a:active {
 }
 
 .exitbtn {
-  color: var(--light-color-2);
+  color: #fff;
   background: var(--red-color);
-  padding: 20px;
-  position: absolute;
-  border-radius: 10px;
+  padding: 15px;
+  margin: 0;
+
+  border-radius: 500px;
   transition: 0.3s;
-  top: 7.5px;
-  right: 20px;
+
+}
+
+.exitbtn .material-icons {
+  margin: 0;
+  padding: 0;
+  transform: translate(0);
+}
+
+.exitbtn {
   -webkit-user-select: none;  
   -moz-user-select: none;    
   -ms-user-select: none;     
@@ -102,28 +111,7 @@ a:active {
   text-decoration: none;
 }
 
-.button1 {
-	cursor: pointer;
-  font-family: 'Poppins';
-	padding: 5px 15px;
-	background: var(--light-color-1);
-	color: #222;
-	border: 0;
-	font-size: 15px;
-  border-radius: 0;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  transition: 0.3s;
-}
 
-.button1 .material-icons {
-  transform: translateY(2px);
-  width: 100%;
-}
-
-.button1:hover {
-	background: #bbb;
-}
 
 /* Chat Page */
 
@@ -245,7 +233,6 @@ a:active {
   width: 100%;
   text-align: left; /* changes the dir of messages */
   border-bottom-right-radius: 50px; /* so does this */
-  background-color: var(--light-color-1);
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   font-family: 'Poppins';
@@ -257,7 +244,6 @@ a:active {
   width: 100%;
   text-align: right; /* changes the dir of messages */
   border-bottom-left-radius: 50px; /* so does this */
-  background-color: var(--light-color-1);
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   font-family: 'Poppins';
@@ -280,17 +266,15 @@ a:active {
 .chat-messages .message2 .meta {
 	font-size: 15px;
 	font-weight: bold;
-	color: #435deeb2;
+  background-color: blue;
 }
 
 
-.chat-messages .message .meta span {
-	color: #777;
-}
+
 
 .chat-form-container {
-	padding: 20px 30px;
-	background-color: var(--dark-color-a);
+	padding: 7px 50px;
+	background: none;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -302,19 +286,17 @@ a:active {
 }
 
 .chat-form-container input[type='text'] {
-	font-size: 16px;
-	padding: 10px;
+	font-size: 13px;
+	padding: 3px;
 	height: 40px;
 	flex: 1;
-  border-radius: 0;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 100px;
   border: none; 
   font-family: 'Poppins';
 }
 
 input {
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -324,12 +306,13 @@ textarea:focus, input:focus{
 
 input[type="text"] {
     box-sizing: border-box;
-    padding: 10px;
+    padding: 5px;
+		width: 500px;
 }
 
 input::placeholder {
   color: #ddd;
-  font-size: 15px;
+  font-size: 13px;
   -webkit-user-select: none;  
   -moz-user-select: none;    
   -ms-user-select: none;      
@@ -479,4 +462,8 @@ input:focus {
 .meet:hover {
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+*{
+  font-family: Poppins;
 }
