@@ -2,10 +2,10 @@ console.log("%c If you were asked to paste anything here, it may comprimise your
 
 
 window.addEventListener("load", function() {
-	const loader = document.querySelector(".preloader");
-
-  loader.classList.add('done');
-  
+    const loader = document.querySelector(".preloader");
+    if (loader) {
+        loader.classList.add('done');
+    }
 });
 
 function mobilemenu(){
