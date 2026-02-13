@@ -103,13 +103,7 @@ app.get("/banned_names.js", (req, res) => {res.sendFile(__dirname + "/public/js/
 
 // Here
 function tryCommands(mesg, userr) {
-	if (mesg == prefix + 'clear') {
-		io.to(userr.room).emit('message', formatMessage('Commands', '<meta http-equiv="refresh" content="0">Clearing, please wait..'));
-	} else if (mesg == prefix + admin + 'crash') {
-		admin_crash();
-	} else if (mesg == prefix + 'help') {
-		io.to(userr.room).emit('message', formatMessage('Commands', 'Commands:<br><ul><li>' + prefix + 'help: Displays this message</li><li>' + prefix + 'clear: Clears messages (for all users)</li></li></ul>'))
-	};
+	io.to(userr.room).emit('message', formatMessage('Commands', 'Commands:<br><ul><li>' + prefix + 'help: Displays this message</li><li>' + prefix + 'clear: Clears messages (for all users)</li></li></ul>'))
 };
 
 
@@ -135,7 +129,7 @@ io.on('connection', socket => {
 		socket.join(user.room);
 
 		// Welcome current user
-		socket.emit('message', formatMessage(botName, 'Welcome to "' + room + ',"' + username + "!"));
+		socket.emit('message', formatMessage(botName, 'Welcome to Blabbr→' + room + ', ' + username + '!'));
 
 		// Broadcast when a user connects
 		socket.broadcast

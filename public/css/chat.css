@@ -204,7 +204,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   background: var(--color-surface);
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   border-radius: var(--radius-md);
   border-left: 3px solid var(--color-accent);
   animation: slideIn var(--duration-fast) var(--ease-out);
@@ -228,7 +228,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .chat-messages .message .meta span {
