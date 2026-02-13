@@ -1,3 +1,8 @@
+/* ==========================================================================
+   This file was modified by AI.
+   ========================================================================== */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;600;700;800&display=swap');
 
 :root {
@@ -34,7 +39,9 @@ body {
 
 /* The Modal (background) */
 .modal {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -48,8 +55,6 @@ body {
 
 .modal.show {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @keyframes fadeIn {
@@ -118,6 +123,15 @@ body {
   margin: 1.5rem 0 0.5rem;
 }
 
+.modal-content h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin: 1.5rem 0 0.75rem;
+}
+
 .modal-content p {
   color: var(--color-text);
   line-height: 1.6;
@@ -134,6 +148,78 @@ body {
 .modal-content a:hover {
   color: var(--color-accent-hover);
   text-decoration: underline;
+}
+
+/* Input Field Styling */
+.modal-content input[type="text"] {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  transition:
+    border-color var(--duration-normal),
+    box-shadow var(--duration-normal);
+  margin: 0.75rem 0 1rem;
+}
+
+.modal-content input[type="text"]::placeholder {
+  color: var(--color-text-muted);
+}
+
+.modal-content input[type="text"]:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.modal-content input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+/* Invite Link Container */
+.invite-link-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.invite-link-container input {
+  flex: 1;
+}
+
+/* Copy Button */
+.copy-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast),
+    transform var(--duration-fast),
+    box-shadow var(--duration-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.copy-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-accent-glow);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
 }
 
 /* Custom Scrollbar */

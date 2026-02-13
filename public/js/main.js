@@ -129,39 +129,32 @@ socket.on('roomUsers', ({ room, users }) => {
 });
 
 function __init__(self){
+    const queryStringx = window.location.search;
+    const urlParamsx = new URLSearchParams(queryStringx);
+    const usrnmx = urlParamsx.get('username')
 
-	const queryStringx = window.location.search;
+    let userxx = usrnmx
+    let roomxx = roomName.innerText;
 
-	const urlParamsx = new URLSearchParams(queryStringx);
+    var modal = document.getElementById("myModal");
+    var inviteLinkInput = document.getElementById("invite-link");
+    var firsttime = document.getElementById("firsttime");
 
-	const usrnmx = urlParamsx.get('username')
+    let invitelink = window.location.origin+'/invite?r='+roomxx
+    inviteLinkInput.value = invitelink;
 
-
-	let userxx = usrnmx
-	let roomxx = roomName.innerText;
-
-	// Get the modal
-	var modal = document.getElementById("myModal");
-	var invitelink = document.getElementById("invite-link").value;
-	var firsttime = document.getElementById("firsttime");
-
-	invitelink = window.location.origin+'/i?u='+userxx+'&r='+roomxx
-
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	modal.style.display = "block";
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-		modal.style.display = "none";
-	}
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-
-
+    var span = document.getElementsByClassName("close")[0];
+    modal.classList.add("show");
+    
+    span.onclick = function() {
+        modal.classList.remove("show");
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.classList.remove("show");
+        }
+    }
 }
 
 

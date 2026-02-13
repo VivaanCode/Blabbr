@@ -20,24 +20,24 @@
 <body>
 
 
-
-	<!-- The Modal -->
 	<div id="myModal" class="modal">
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <div id="default">
-	      <h1>Welcome Back to Blabbr!</h1>
-	      <h2>Don't forget: if you need help, send the message '/help' in the chat for help.</h2>
-	    </div>
-	    <div id='firstt' class="firsttime">
-	      <h1>Welcome to Blabbr!</h1>
-	      <h2>Looks like it's your first time here! Send the message '/help' in the chat to get a list of all commands and extra information.</h2>
-	    </div>
-	    <h2>Invite friends!</h2>
-	    <h3>Invite Link:</h3>
-	    <input type="text" name="invite" id="invite-link" value="Loading..." placeholder="Your invite link!">
-	  </div>
-	</div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="default">
+          <h1>Welcome Back to Blabbr!</h1>
+          <h2>Invite friends by using the link below.</h2>
+        </div>
+        <div id='firstt' class="firsttime">
+          <h1>Welcome to Blabbr!</h1>
+          <h2>Looks like it's your first time here! Send the message '/help' in the chat to get a list of all commands and extra information. Invite friends by using the link below.</h2>
+        </div>
+        <h3>Invite Link:</h3>
+        <div class="invite-link-container">
+          <input type="text" id="invite-link" value="Loading..." placeholder="Your invite link!" readonly>
+          <button class="copy-btn" type="button" data-clipboard-target="#invite-link">Copy</button>
+        </div>
+      </div>
+    </div>
 
 	<!-- Preloader -->
 	<div class="preloader">
@@ -66,10 +66,6 @@
 
       <div class="meet">
           <a class="meet" onclick="videoChat();"><span class="material-icons">videocam</span></a> <!-- WHY CANT THE STUPID THING JUST WOKR -->
-        </div>
-
-        <div class="users">
-          <a onclick="sidebar();" class="usrs">Users</a>
         </div>
       </header>
       
