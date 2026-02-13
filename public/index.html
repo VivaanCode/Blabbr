@@ -1,143 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+    <link rel="icon" href="images/favicon.svg">
+		<meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Blabbr" />
+        <meta property="og:description"   content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
 
-<head>
-  <link rel="icon" type="image/png" href="images/favicon.png"/>
+		<link rel="stylesheet" href="css/join.css" />
+		<title>Blabbr</title>
+	</head>
+	<body>
+    <!-- Preloader --> 
+  <div class="preloader">
 
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Blabbr" />
-	<meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-	 crossorigin="anonymous" />
-
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css" />
-
-	<title>Blabbr - Chat Online With Friends in Real time</title>
-</head>
-
-<body>
-	<!-- Preloader -->
-	<div class="preloader">
-
-		<div class="image">
-			<center>
-				<img src="images/blabbr.svg" alt="logo" id="logo-loader">
+    <div class="image">
+      <center>
+      <img src="images/blabbr.svg" alt="spinner" id="logo-loader">
       </center>
     </div>
     
   </div>
 
 
-	<div class="wrapper">
-		<div id="skew1" class="cus-div">
-			<div class="nav" id="nav">
-        <!-- Navigation -->
-        <div class="mobile">
-          <a onclick="mobilemenu();">
-            <span class="material-icons">menu</span>
-          </a>
-
-          <div class="menu">
-            <a onclick="mobilemenu();">
-              <span class="material-icons">close</span>
-            </a>
-
-            <div class="linkstwo">
-              <center>
-                <a class="msignup">Sign Up</a>
-                <a class="mcontact">Contact</a>
-                <a class="mabout">About</a>
-                <a class="mhome">Home</a>
-              </center>
-            </div>
-          </div>
+  <div class="join">
+    <header class="join-header">
+      <img src="images/blabbr.svg" class="blabbr-logo">
+    </header>
+    <h1>Join A Room</h1>
+    
+		<div id="invaliDiv"></div> <br>
+    <main class="join-main">
+      <form action="chat">
+        <div class="form-control">
+          <input
+            type="text" 
+            name="username" 
+            id="username"
+            placeholder="Username"
+            style="padding: 15px 20px;"
+            required
+          />
+          <input 
+            type="text" 
+            name="room" 
+            id="username"
+            placeholder="Room"
+            style="padding: 15px 20px;"
+            required
+            />
+        <button
+          type="submit" 
+          class="btn"
+          id="mesfs"
+          style="font-size: 15px;
+          padding: 15px 20px;"
+          >Join</button>
         </div>
-				<div class="links">
-
-					<a class='signup' href="#">Sign Up</a>
-					<a class="contact" href="#">Contact</a>
-					<a class="about" href="#">About</a>
-					<a class="home" href="/">Home</a>
-
-				</div>
-
-				<a href="#"><img src="images/blabbr.svg" alt="Blabbr"></a>
-        </div>
-        <div class="content">
-
-          <!-- Description -->
-          <h1 class="title">Blabbr</h1>
-          <p class="desc">Welcome to the next generation of chatting.<br><b> Blabbr is here</b>.<br>Secure, Fast, and Real-Time, Blabbr is the best choice for chatting online&#8212; no download required.</p> 
-          <!-- Arrows -->
-          <div class="arrows">
-            <div class="container">
-              <div class="one"><a href="#why-us"><span class="material-icons">keyboard_arrow_down</span></a></div>
-
-              <div class="two"><a href="#why-us"><span class="material-icons">keyboard_arrow_down</span></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-	 </div>
-
-
-<!-- Display Image -->
-<div class="image-placeholder">
-  <img src="images/browser.png" alt="test">
-</div>
-
-<!-- Cards -->
-<div class="cards">
-<div class="row" id="why-us">
-  <h1>Why Blabbr?</h1>
-  <div class="column">
-    <div class="card">
-      <h2>Fast <span class="material-icons">
-      speed
-      </span> </h2>
-      <div class="border"></div>
-      <p>Our servers update every millisecond, granting our users fast speed. It takes about 1 millisecond for messages to appear on another user’s device.</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>Real-Time <span class="material-icons">
-      bolt
-      </span> </h2>
-      <div class="border"></div>
-      <p>Our Node server runs 24/7 meaning messages are getting passed around whenever, wherever. You can always be in touch with your friends.</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>Secure <span class="material-icons">
-      lock
-      </span> </h2>
-      <div class="border"></div>
-      <p>You can only see the messages sent <i>after</i> you joined, and same goes for anyone else that joins your room, so you can talk with privacy.</p>
-    </div>
-  </div>
-	</div>
-<!----------------------------------------------------------------------------->
-  <div class="section">
-	  <h2>What's the catch?</h2>
-  	<p>Nothing! Our service is free to use (paid plans available),<br> no hidden fees or charges. Just sign up, <br>and you're good to go!</p>
+      </form>
+    </main>
   </div>
 
-</div>
 
-<!-- Javascript / Imports -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
-  integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
-  crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- Scripts -->
-<script src="js/scroll.js"></script>
+let urlParaz = new URLSearchParams(window.location.search);
+if (urlParaz.get('invalid') !== null){
+	window.onload = function(){
+		var div = document.getElementById('invaliDiv')
+  	var invalidtext = document.createElement("H3");
+  	invalidtext.innerHTML = "Invalid name, choose another.";
+  	invalidtext.classList.add("invalidname");
+  	div.appendChild(invalidtext);
+	}
+}
+
+</script>
 <script src="js/load.js"></script>
-<script src="js/parallax.js"></script>
-</div>
 </body>
+			</main>
+		</div>
 </html>

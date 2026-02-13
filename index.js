@@ -229,11 +229,4 @@ const PORT = process.env.PORT || 8000;
 
 app.get('*', (req, res) => {res.sendFile(__dirname + "/public/404.html")})
 
-server.listen(PORT, () => console.log(`Server running! Port in .env`));
-
-
-if (require.main === module) {
-  app.listen(PORT, "localhost", () => {
-    console.log(`Server running on port ${PORT}/`);
-  });
-}
+server.listen(PORT, () => console.log(`Server running!`));
