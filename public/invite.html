@@ -1,76 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+  <head>
     <link rel="icon" type="image/png" href="images/favicon.png"/>
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="You were invited to a Blabbr room! - Blabbr" />
-	<meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="You were invited to a Blabbr room! - Blabbr" />
+    <meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
+    <link rel="stylesheet" href="css/join.css" />
+    <title>Blabbr - Invite</title>
+  </head>
+  <body>
 
-	<link rel="stylesheet" href="css/join.css" />
-		<title>Blabbr - Invite</title>
-	</head>
-	<body>
-    <!-- Preloader --> 
-  <div class="preloader">
-
-    <div class="image">
+    <div class="center">
       <center>
-      <img src="images/blabbr loading.svg" alt="spinner" id="logo-loader">
-      </center>
-    </div>
-    
-  </div>
-
-
-  <center>
-  <div class="join">
-    <header class="join-header">
-      <img src="images/blabbr.svg" class="blabbr-logo">
-    </header>
-    <br><br><br><br><br><br><br><br><br><br>
-    <h1 id="title">Join Room <div id='roomn' class="roomid">room</div></h1>
-    <br>
-    <main class="join-main">
-      <form action="chat">
-        <div class="form-control">
+        <header class="join-header">
+          <img src="images/blabbr.svg" class="blabbr-logo" alt="Blabbr">
+        </header>
+        <h1 id="title">Join Room <div id='roomn' class="roomid">room</div></h1>
+        <form action="chat">
           <input
-            type="text" 
-            name="username" 
+            type="text"
+            name="username"
             id="username"
             placeholder="Username"
-            style="padding: 15px 20px;"
             required
           />
-        </div>
-
-        <div class="form-control">
           <input
-            type="text" 
-            name="room" 
+            type="text"
+            name="room"
             id="roomname"
             placeholder="room"
             style="display: none;"
             required
           />
-        </div>
+          <input type="submit" class="btn" id="mesfs" value="Join" />
+        </form>
+      </center>
+    </div>
 
-            <br>
-
-        <button
-          type="submit" 
-          class="btn"
-          id="mesfs"
-          style="font-size: 15px;"
-          >Join</button>
-      </form>
-    </main>
-  </div>
-
-  </center>
-
-  
-<script src="js/load.js"></script>
-<script src="js/urlparams.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/urlparams.js"></script>
   </body>
 </html>
 

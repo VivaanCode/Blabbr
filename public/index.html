@@ -1,82 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+  <head>
     <link rel="icon" href="images/favicon.svg">
-		<meta property="og:type"          content="website" />
-        <meta property="og:title"         content="Blabbr" />
-        <meta property="og:description"   content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blabbr" />
+    <meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
+    <link rel="stylesheet" href="css/join.css" />
+    <title>Blabbr</title>
+  </head>
+  <body>
 
-		<link rel="stylesheet" href="css/join.css" />
-		<title>Blabbr</title>
-	</head>
-	<body>
-    <!-- Preloader --> 
-  <div class="preloader">
-
-    <div class="image">
+    <div class="center">
       <center>
-      <img src="images/blabbr.svg" alt="spinner" id="logo-loader">
-      </center>
-    </div>
-    
-  </div>
-
-
-  <div class="join">
-    <header class="join-header">
-      <img src="images/blabbr.svg" class="blabbr-logo">
-    </header>
-    <h1>Join A Room</h1>
-    
-		<div id="invaliDiv"></div> <br>
-    <main class="join-main">
-      <form action="chat">
-        <div class="form-control">
+        <header class="join-header">
+          <img src="images/blabbr.svg" class="blabbr-logo" alt="Blabbr">
+        </header>
+        <h1>Blabbr</h1>
+        <div id="invaliDiv"></div>
+        <form action="chat">
           <input
-            type="text" 
-            name="username" 
+            type="text"
+            name="username"
             id="username"
             placeholder="Username"
-            style="padding: 15px 20px;"
             required
           />
-          <input 
-            type="text" 
-            name="room" 
-            id="username"
+          <input
+            type="text"
+            name="room"
+            id="room"
             placeholder="Room"
-            style="padding: 15px 20px;"
             required
-            />
-        <button
-          type="submit" 
-          class="btn"
-          id="mesfs"
-          style="font-size: 15px;
-          padding: 15px 20px;"
-          >Join</button>
-        </div>
-      </form>
-    </main>
-  </div>
+          />
+          <input type="submit" id="mesfs" value="Join" />
+        </form>
+      </center>
+    </div>
 
-
-<script>
-
-let urlParaz = new URLSearchParams(window.location.search);
-if (urlParaz.get('invalid') !== null){
-	window.onload = function(){
-		var div = document.getElementById('invaliDiv')
-  	var invalidtext = document.createElement("H3");
-  	invalidtext.innerHTML = "Invalid name, choose another.";
-  	invalidtext.classList.add("invalidname");
-  	div.appendChild(invalidtext);
-	}
-}
-
-</script>
-<script src="js/load.js"></script>
-</body>
-			</main>
-		</div>
+    <script>
+      let urlParaz = new URLSearchParams(window.location.search);
+      if (urlParaz.get('invalid') !== null){
+        window.onload = function(){
+          var div = document.getElementById('invaliDiv')
+          var invalidtext = document.createElement("H3");
+          invalidtext.innerHTML = "Invalid name, choose another.";
+          invalidtext.classList.add("invalidname");
+          div.appendChild(invalidtext);
+        }
+      }
+    </script>
+    <script src="js/load.js"></script>
+  </body>
 </html>
