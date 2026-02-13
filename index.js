@@ -3,27 +3,18 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
+
 const app = express();
-const router = express.Router();
-const bodyParser = require('body-parser');
-var botName = 'Blabbot';
 const server = http.createServer(app);
 const io = socketio(server);
-const fs = require('fs');
+
+var botName = 'Blabbot';
 const prefix = '/';
-var lines = 0;
-let s = new Date();
-var lxtx;
 const admin = 'admin:'
-const limit = 1000;
 const commands = [prefix + 'clear', prefix + 'help', prefix + admin + 'crash'];
-const url = require('url');
-var roomofltstmsg = 'no data yet'
-var latestmessagex = 'no data yet'
-var latesthistorymsg;
 
 
-// example URL: https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty
+// example URL: /api/send?username=123&room=hello&msg=mytestytesty
 
 
 function api_sendmessage(urlx){
@@ -113,18 +104,18 @@ app.get("/sitemap.xml", (req, res) => {res.sendFile(__dirname + "/sitemap.xml")}
 app.get("/logo", (req, res) => {res.sendFile(__dirname + "/public/images/blabbr.svg")})
 
 app.get("/api/send", (req, res) => {res.sendFile(__dirname + "/public/api.html")
-//api_sendmessage('https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty')
-api_sendmessage('https://blabbr.xyz'+req.url)
+//api_sendmessage('/api/send?username=123&room=hello&msg=mytestytesty')
+api_sendmessage('http://localhost'+req.url)
 
 })
 
 app.get('/api/get/users', (req, res) =>{
-	const usersinchat = api_getusers('https://blabbr.xyz'+req.url)
+	const usersinchat = api_getusers('http://localhost'+req.url)
 	res.send(usersinchat)
 });
 
 app.get('/api/get/latestmessage', (req, res) =>{
-	res.send(api_getlatestmsg('https://blabbr.xyz'+req.url))
+	res.send(api_getlatestmsg('http://localhost'+req.url))
 });
 
 app.get("/banned_names.js", (req, res) => {res.sendFile(__dirname + "/public/js/banned_names.js")})
@@ -142,16 +133,7 @@ function tryCommands(mesg, userr) {
 	};
 };
 
-function senData(mesgg, userrr, roomm) {
-	var latestmessagex = mesgg
-	var roomofltstmsg = roomm
-};
 
-/*
-var d = new Date();
-const hours = d.getHours();
-const mins = d.getMinutes();
- */
 
 const { //here
 	userJoin,
@@ -204,29 +186,11 @@ io.on('connection', socket => {
 			tryCommands(msg, user);
 		} else {
 			try {
-				senData(msg, user, user.room);
 				io.to(user.room).emit('message', formatMessage(user.username, msg));
-				var ltstmsg = msg;
-				var ltstmsgxroom = user.room
 			}
 			catch (err) {
 				console.error('Chat Crashed— Auto rerunning/reran. Error:\n' + err)
 			}
-			lines++
-
-			var latesthistorymsg = '|| User: '+user.username + ' || Message: ' + msg + ' || Room: ' + user.room + ' || Time: ' + s + '|| \n \n'
-			fs.writeFile('history.txt', latesthistorymsg, { flag: 'a+' }, err => { // o
-				if (err) {
-					console.error(err)
-				}
-
-				if (lines > limit) {
-					fs.writeFile('history.txt', '', function() {
-						lines = '0';
-						console.log('done')
-					})
-				}
-			})
 		}
 	});
 
@@ -261,12 +225,15 @@ process.on('uncaughtException', function(err) {
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.get('*', (req, res) => {res.sendFile(__dirname + "/public/404.html")})
 
 server.listen(PORT, () => console.log(`Server running! Port in .env`));
 
 
-
-
+if (require.main === module) {
+  app.listen(PORT, "localhost", () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+  });
+}

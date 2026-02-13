@@ -1,4 +1,4 @@
-// Demo Link: https://blabbr.xyz/i?u=username&r=room
+// Demo Link: /i?u=username&r=room
 
 let urlParamsx = new URLSearchParams(window.location.search);
 let roomx = urlParamsx.get('r')

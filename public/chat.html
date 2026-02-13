@@ -3,59 +3,40 @@
 
 <head>
   <link rel="icon" type="image/png" href="images/favicon.png"/>
-
-	<link rel="icon" href="images/Favicon.svg">
-	<!-- Meta Tags -->
-	<meta property="og:url" content="https://blabbr.xyz" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Blabbr" />
-	<meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time,  Blabbr is the next generation of chatting."
-	/>
-	<meta name="google-site-verification" content="AJJivyeGohGy3y3kT_6F-Zu1htdkdfVoL3JHw36g4Pk" />
-	<meta property="og:image" content="https://Blabbr.xyz/images/Blabbr.svg" />
+	<meta property="og:description" content="Welcome to the next generation of chatting. Fast, easy-to-use, secure, and real-time, Blabbr is the next generation of chatting." />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 	 crossorigin="anonymous" />
 	<link rel="stylesheet" href="css/chat.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="css/modal.css">
-
-
+	<link rel="stylesheet" href="css/modal.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 	<title>Blabbr - Chat</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-
-	<!-- The Modal -->
-<center>
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="default">
-      <h1>Welcome Back to Blabbr!</h1>
-
-      <h2>Don't forget: if you need help, send the message '/help' in the chat. Or you can find more info in our <a href="//docs.blabbr.xyz">API docs</a></h2>
-    </div>
-		<div id='firstt' class="firsttime">
-      <h1>Welcome to Blabbr!</h1>
-      <h2>Looks like its is your first time here! Send the message '/help' in the chat to get a list of all commands and extra information. You can find more information in our our <a href="//docs.blabbr.xyz" target="_blank">API Docs</a>.</h2>
-    </div>
-    <h2>Invite friends!</h2>
-		<h3>Invite Link:</h3>
-    <input type="text" name="invite" id="invite-link" value="Loading..." placeholder="Your invite link!">
-
-  </div>
-
-</div></center>
-</head>
-
+	<script src="/socket.io/socket.io.js"></script>
 
 <body>
 
 
 
-
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="default">
+	      <h1>Welcome Back to Blabbr!</h1>
+	      <h2>Don't forget: if you need help, send the message '/help' in the chat for help.</h2>
+	    </div>
+	    <div id='firstt' class="firsttime">
+	      <h1>Welcome to Blabbr!</h1>
+	      <h2>Looks like it's your first time here! Send the message '/help' in the chat to get a list of all commands and extra information.</h2>
+	    </div>
+	    <h2>Invite friends!</h2>
+	    <h3>Invite Link:</h3>
+	    <input type="text" name="invite" id="invite-link" value="Loading..." placeholder="Your invite link!">
+	  </div>
+	</div>
 
 	<!-- Preloader -->
 	<div class="preloader">
@@ -125,21 +106,16 @@
 
 <script>
 	function videoChat(){
-		window.open('https://meet.blabbr.xyz/'+room)
+		alert('Video chat feature is not available in this deployment.');
 	}
 </script>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js" integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
 
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDL2P47523"></script>
-
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-   <script src="/socket.io/socket.io.js"></script>
-    <script src="js/main.js"></script>
+   <script src="js/main.js"></script>
     <script src="js/load.js"></script>
     <script src="js/chat.js"></script>
-    <script src="https://blabbr.xyz/banned_names.js"></script>
+    <script src="js/banned_names.js"></script>
 
  </body>
 </html>

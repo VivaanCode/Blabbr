@@ -165,7 +165,7 @@ function __init__(self){
 	var invitelink = document.getElementById("invite-link").value;
 	var firsttime = document.getElementById("firsttime");
 
-	invitelink = 'https://blabbr.xyz/i?u='+userxx+'&r='+roomxx
+	invitelink = window.location.origin+'/i?u='+userxx+'&r='+roomxx
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
