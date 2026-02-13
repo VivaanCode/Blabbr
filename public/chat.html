@@ -34,7 +34,7 @@
         <h3>Invite Link:</h3>
         <div class="invite-link-container">
           <input type="text" id="invite-link" value="Loading..." placeholder="Your invite link!" readonly>
-          <button class="copy-btn" type="button" data-clipboard-target="#invite-link">Copy</button>
+          <button class="copy-btn" type="button" data-clipboard-target="#invite-link" onclick="copyLink();">Copy</button>
         </div>
       </div>
     </div>
@@ -114,6 +114,13 @@
     <script src="js/load.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/banned_names.js"></script>
-
+    <script>
+      function copyLink() {
+        var copyText = document.getElementById("invite-link");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+      }
+    </script>
  </body>
 </html>

@@ -14,25 +14,6 @@ const admin = 'admin:'
 const commands = [prefix + 'clear', prefix + 'help', prefix + admin + 'crash'];
 
 
-// example URL: https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty
-
-
-function api_sendmessage(urlx){
-  // new URL object
-  const current_url = new URL(urlx);
-
-  // get access to URLSearchParams object
-  const search_params = current_url.searchParams;
-
-  // get url parameters
-  const roomnme = search_params.get('room');
-  const usernm = search_params.get('username');
-  const messagecontent = search_params.get('msg');
-
-
-	io.to(roomnme).emit('message', formatMessage(usernm+' (Bot)', messagecontent));
-}
-
 function api_getusers(urlx){
   // new URL object
   const current_url = new URL(urlx);
@@ -84,8 +65,6 @@ function api_getlatestmsg(urlxx){
 app.get("/", (req, res) => {res.sendFile(__dirname + "/public/index.html")})
 
 app.get("/chat", (req, res) => {res.sendFile(__dirname + "/public/chat.html")})
-
-app.get("/documentation", (req, res) => {res.sendFile(__dirname + "/public/docs.html")})
 
 app.get("/i", (req, res) => {res.sendFile(__dirname + "/public/invite.html")})
 

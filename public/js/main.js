@@ -140,7 +140,7 @@ function __init__(self){
     var inviteLinkInput = document.getElementById("invite-link");
     var firsttime = document.getElementById("firsttime");
 
-    let invitelink = window.location.origin+'/invite?r='+roomxx
+    let invitelink = window.location.origin+'/i?u='+userxx+'&r='+roomxx
     inviteLinkInput.value = invitelink;
 
     var span = document.getElementsByClassName("close")[0];
