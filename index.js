@@ -14,7 +14,7 @@ const admin = 'admin:'
 const commands = [prefix + 'clear', prefix + 'help', prefix + admin + 'crash'];
 
 
-// example URL: /api/send?username=123&room=hello&msg=mytestytesty
+// example URL: https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty
 
 
 function api_sendmessage(urlx){
@@ -104,18 +104,18 @@ app.get("/sitemap.xml", (req, res) => {res.sendFile(__dirname + "/sitemap.xml")}
 app.get("/logo", (req, res) => {res.sendFile(__dirname + "/public/images/blabbr.svg")})
 
 app.get("/api/send", (req, res) => {res.sendFile(__dirname + "/public/api.html")
-//api_sendmessage('/api/send?username=123&room=hello&msg=mytestytesty')
-api_sendmessage('http://localhost'+req.url)
+//api_sendmessage('https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty')
+api_sendmessage(req.protocol + '://' + req.get('host')+req.url)
 
 })
 
 app.get('/api/get/users', (req, res) =>{
-	const usersinchat = api_getusers('http://localhost'+req.url)
+	const usersinchat = api_getusers(req.protocol + '://' + req.get('host')+req.url)
 	res.send(usersinchat)
 });
 
 app.get('/api/get/latestmessage', (req, res) =>{
-	res.send(api_getlatestmsg('http://localhost'+req.url))
+	res.send(api_getlatestmsg(req.protocol + '://' + req.get('host')+req.url))
 });
 
 app.get("/banned_names.js", (req, res) => {res.sendFile(__dirname + "/public/js/banned_names.js")})
@@ -234,6 +234,6 @@ server.listen(PORT, () => console.log(`Server running! Port in .env`));
 
 if (require.main === module) {
   app.listen(PORT, "localhost", () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
+    console.log(`Server running on port ${PORT}/`);
   });
 }
