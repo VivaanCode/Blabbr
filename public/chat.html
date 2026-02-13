@@ -15,6 +15,7 @@
 	<title>Blabbr - Chat</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 
 <body>
 
@@ -90,13 +91,14 @@
             class="message"
             style="padding:15px"
             id="msg"
+            name="msg"
             type="text"
             placeholder="Enter message.."
             required
             autocomplete="off"
             maxlength="150"
           />
-          <button id='mesfes' class="button1"><span class="material-icons">send</span></button>
+          <button id='mesfes' class="button1" type="submit"><span class="material-icons">send</span></button>
         </form>
         
       </div>

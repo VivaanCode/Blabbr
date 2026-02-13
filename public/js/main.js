@@ -88,42 +88,22 @@ chatForm.addEventListener('submit', e => {
 
 // Output message to DOM
 function outputMessage(message) {
-  if (message.username == '-Xenity-'){
-    const div = document.createElement('div');
+	const messageContainer = document.querySelector('.chat-messages');
+  	const lastMessage = messageContainer.lastElementChild;
 
+
+	if (lastMessage && lastMessage.querySelector('.meta')?.textContent.trim().split('\n')[0] === message.username) {
+		const existingText = lastMessage.querySelector('.text');
+		existingText.innerHTML += `<br>${message.text}`;
+		return;
+	}
+    const div = document.createElement('div');
   	div.classList.add(messagename);
 
-  	div.innerHTML = `<p class="meta">${message.username} <p class="tag">(Admin)</p></p>
-    <p class="text">
-      ${message.text}
-    </p>`;
+    div.innerHTML = `<p class="meta">${message.username}</p>
+    <p class="text">${message.text}</p>`;
 
-    document.querySelector('.chat-messages').appendChild(div);
-
-	  } else if (message.username == '--VSCoder--' || message.username == 'Vivaan' || message.username == 'VSCoder' || message.username == 'VS' || message.username == 'Vivaan S.'){
-    const div = document.createElement('div');
-
-  	div.classList.add(messagename);
-
-  	div.innerHTML = `<p class="meta">${message.username}</p><p class="tag">(Admin)</p>
-    <p class="text">
-      ${message.text}
-    </p>`;
-
-    document.querySelector('.chat-messages').appendChild(div);
-  } else {
-    const div = document.createElement('div');
-
-  	div.classList.add(messagename);
-
-  	div.innerHTML = `<p class="meta">${message.username}</p>
-
-    <p class="text">
-      ${message.text}
-    </p>`;
-
-    document.querySelector('.chat-messages').appendChild(div);
-  };
+    messageContainer.appendChild(div);
 }
 
 
