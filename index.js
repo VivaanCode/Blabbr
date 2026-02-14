@@ -10,56 +10,17 @@ const io = socketio(server);
 
 var botName = 'Blabbot';
 const prefix = '/';
-const admin = 'admin:'
-const commands = [prefix + 'clear', prefix + 'help', prefix + admin + 'crash'];
+const commands = [prefix + 'clear', prefix + 'help'];
 
-
-function api_getusers(urlx){
-  // new URL object
-  const current_url = new URL(urlx);
-  // get access to URLSearchParams object
-  const search_params = current_url.searchParams;
-
-  // get url parameters
-  var roomnmex = search_params.get('room');
-	if (search_params.has('rawjson')){
-		if(search_params.has('plaintext')){
-		return JSON.stringify(getRoomUsers(roomnmex))
-		} else{
-		return getRoomUsers(roomnmex)
-		}
-	}
-	else{
-    return JSON.stringify(getRoomUsers(roomnmex))
-
-    fs.readFile(getRoomUsers(roomnmex), 'utf-8', (err, jsonstring) => {
-      console.log('<div id="usrs">'+jsonstring+'</div>');
-    })
-	}
+function escapeHtml(str){
+    return String(str||'')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/\//g, '&#x2F;');
 }
-
-
-function api_getlatestmsg(urlxx){
-  // new URL object
-  const current_url = new URL(urlxx);
-
-  // get access to URLSearchParams object
-  const search_params = current_url.searchParams;
-
-  // get url parameters
-  var roomxx = search_params.get('room');
-  
-
-	if (roomofltstmsg = roomxx){
-		var lxtx = latestmessagex
-		return latestmessagex;
-	} else{
-		return lxtx
-	}
-}
-
-
-
 
 
 app.get("/", (req, res) => {res.sendFile(__dirname + "/public/index.html")})
@@ -68,34 +29,9 @@ app.get("/chat", (req, res) => {res.sendFile(__dirname + "/public/chat.html")})
 
 app.get("/i", (req, res) => {res.sendFile(__dirname + "/public/invite.html")})
 
-app.get("/privacy-policy", (req, res) => {res.sendFile(__dirname + "/public/privacy.html")})
-
-app.get("/terms", (req, res) => {res.sendFile(__dirname + "/public/tos.html")})
-
 app.get("/join", (req, res) => {res.sendFile(__dirname + "/public/join.html")})
 
-app.get("/click", (req, res) => {res.sendFile(__dirname + "/public/click.html")})
-
-app.get("/developers", (req, res) => {res.sendFile(__dirname + "/public/devs.html")})
-
-app.get("/sitemap.xml", (req, res) => {res.sendFile(__dirname + "/sitemap.xml")})
-
 app.get("/logo", (req, res) => {res.sendFile(__dirname + "/public/images/blabbr.svg")})
-
-app.get("/api/send", (req, res) => {res.sendFile(__dirname + "/public/api.html")
-//api_sendmessage('https://blabbr.xyz/api/send?username=123&room=hello?&msg=mytestytesty')
-api_sendmessage(req.protocol + '://' + req.get('host')+req.url)
-
-})
-
-app.get('/api/get/users', (req, res) =>{
-	const usersinchat = api_getusers(req.protocol + '://' + req.get('host')+req.url)
-	res.send(usersinchat)
-});
-
-app.get('/api/get/latestmessage', (req, res) =>{
-	res.send(api_getlatestmsg(req.protocol + '://' + req.get('host')+req.url))
-});
 
 app.get("/banned_names.js", (req, res) => {res.sendFile(__dirname + "/public/js/banned_names.js")})
 
@@ -129,20 +65,21 @@ io.on('connection', socket => {
 		socket.join(user.room);
 
 		// Welcome current user
-		socket.emit('message', formatMessage(botName, 'Welcome to Blabbr→' + room + ', ' + username + '!'));
+		socket.emit('message', formatMessage(botName, 'Welcome to Blabbr→' + escapeHtml(room) + ', ' + escapeHtml(username) + '!'));
 
 		// Broadcast when a user connects
 		socket.broadcast
 			.to(user.room)
 			.emit(
 				'message',
-				formatMessage(botName, `${user.username} has joined the chat`)
+				formatMessage(botName, `${escapeHtml(user.username)} has joined the chat`)
 			);
 
+		const users = getRoomUsers(user.room).map(u => ({ ...u, username: escapeHtml(u.username) }));
 		// Send users and room info
 		io.to(user.room).emit('roomUsers', {
-			room: user.room,
-			users: getRoomUsers(user.room)
+			room: escapeHtml(user.room),
+			users: users
 		});
 	});
 
@@ -159,7 +96,7 @@ io.on('connection', socket => {
 			tryCommands(msg, user);
 		} else {
 			try {
-				io.to(user.room).emit('message', formatMessage(user.username, msg));
+				io.to(user.room).emit('message', formatMessage(escapeHtml(user.username), escapeHtml(msg)));
 			}
 			catch (err) {
 				console.error('Chat Crashed— Auto rerunning/reran. Error:\n' + err)
@@ -178,10 +115,11 @@ io.on('connection', socket => {
 				formatMessage(botName, `${user.username} has left the chat.`)
 			);
 
+			const users = getRoomUsers(user.room).map(u => ({ ...u, username: escapeHtml(u.username) }));
 			// Send users and room info
 			io.to(user.room).emit('roomUsers', {
-				room: user.room,
-				users: getRoomUsers(user.room)
+				room: escapeHtml(user.room),
+				users: users
 			});
 		}
 
