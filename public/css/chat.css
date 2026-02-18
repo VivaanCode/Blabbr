@@ -299,6 +299,15 @@ a:hover {
   transform: translateY(0);
 }
 
+/* Typing indicator */
+.typing-indicator{
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  padding-top: 6px;
+  margin-left: 4px;
+  display:none;
+}
+
 /* Buttons */
 
 .button1 {
