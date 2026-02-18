@@ -33,6 +33,8 @@ app.get("/join", (req, res) => {res.sendFile(__dirname + "/public/join.html")})
 
 app.get("/logo", (req, res) => {res.sendFile(__dirname + "/public/images/blabbr.svg")})
 
+app.get("/invalid_name", (req, res) => {res.sendFile(__dirname + "/public/invalid_name.html")})
+
 app.get("/banned_names.js", (req, res) => {res.sendFile(__dirname + "/public/js/banned_names.js")})
 
 
@@ -60,6 +62,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', socket => {
 	socket.on('joinRoom', ({ username, room }) => {
 		const user = userJoin(socket.id, username, room);
+
+		if (username === null || username === undefined || username.trim() === '' || banned_names.includes(username.toLowerCase()) || username.toLowerCase() === botName.toLowerCase() || getRoomUsers(room).includes(username.toLowerCase())) {
+			socket.emit('invalidName');
+			return;
+		}
 
 
 		socket.join(user.room);

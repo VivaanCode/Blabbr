@@ -162,6 +162,10 @@ socket.on('userTyping', (username) => {
   renderTyping();
 });
 
+socket.on('invalidName', (username) => {
+  window.location.href = '/invalid_name';
+});
+
 socket.on('userStopTyping', (username) => {
   typingUsers.delete(username);
   renderTyping();
