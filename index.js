@@ -83,11 +83,6 @@ io.on('connection', socket => {
 		});
 	});
 
-	/*
-		var person = prompt("Please enter your new name",+user.username);
-		window.location = ('https://Blabbr.teamblabbr.repl.co/chat.html?username='+person+'&room='+user.room);
-	*/
-
 	// Listen for chatMessage
 	socket.on('chatMessage', msg => {
 		const user = getCurrentUser(socket.id);
