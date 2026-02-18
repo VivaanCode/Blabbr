@@ -120,8 +120,52 @@ function outputUsers(users) {
   `;
 }
 
+// ive actually written typing logic before, in chat.vivaan.dev
+const msgInput = document.querySelector('input[name="msg"]');
+const typingIndicator = document.getElementById('typing-indicator');
+const typingUsers = new Set();
+let typing = false;
+let typingTimeout;
+const typingTimer = 1500;
 
+function renderTyping() {
+  if (!typingIndicator) return;
+  const users = Array.from(typingUsers);
+  if (users.length === 0) {
+    typingIndicator.style.display = 'none';
+    typingIndicator.textContent = '';
+  } else if (users.length === 1) {
+    typingIndicator.style.display = 'block';
+    typingIndicator.textContent = `${users[0]} is typing...`;
+  } else {
+    typingIndicator.style.display = 'block';
+    typingIndicator.textContent = `${users.join(', ')} are typing...`;
+  }
+}
 
+if (msgInput) {
+  msgInput.addEventListener('input', () => {
+    if (!typing) {
+      typing = true;
+      socket.emit('typing', true);
+    }
+    clearTimeout(typingTimeout);
+    typingTimeout = setTimeout(() => {
+      typing = false;
+      socket.emit('typing', false);
+    }, typingTimer);
+  });
+}
+
+socket.on('userTyping', (username) => {
+  typingUsers.add(username);
+  renderTyping();
+});
+
+socket.on('userStopTyping', (username) => {
+  typingUsers.delete(username);
+  renderTyping();
+});
 
 socket.on('roomUsers', ({ room, users }) => {
 	var roomName = room;

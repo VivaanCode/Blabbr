@@ -99,6 +99,15 @@ io.on('connection', socket => {
 		}
 	});
 
+	socket.on('typing', (isTyping) => {
+		const user = getCurrentUser(socket.id);
+		if (!user) return;
+		if (isTyping) {
+			socket.to(user.room).emit('userTyping', user.username);
+		} else {
+			socket.to(user.room).emit('userStopTyping', user.username);
+		}
+	});
 
 	// Runs when client disconnects
 	socket.on('disconnect', () => {
