@@ -8,6 +8,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+var banned_names = ["Blabbot"]
+
 var botName = 'Blabbot';
 const prefix = '/';
 const commands = [prefix + 'clear', prefix + 'help'];
